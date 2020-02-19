@@ -37,7 +37,10 @@ public class BokZus {
 
         System.out.println("Podaj numer PESEL:");
         String pesel = scanner.nextLine();
-
+        while (!PeselUtils.validate(pesel)) {
+            System.out.println("Nieprawidłowy format numeru PESEL, wpisz ponownie!");
+            pesel = scanner.nextLine();
+        }
         System.out.printf("Imię: %s, nazwisko: %s, PESEL: %s", name, lastName, pesel);
     }
 }
