@@ -2,7 +2,7 @@ package pl.sda.javabasics.zus.bok;
 
 import java.time.LocalDate;
 
-class PeselUtils {
+public class PeselUtils {
 
     private PeselUtils() {}
 
@@ -10,7 +10,7 @@ class PeselUtils {
         return pesel != null && pesel.matches("[0-9]{11}");
     }
 
-    static char readSex(String pesel) {
+    public static char readSex(String pesel) {
         if (validate(pesel)) {
             String sexDigitAsString = pesel.substring(9, 10);
             int sexAsNumber = Integer.parseInt(sexDigitAsString);
@@ -20,7 +20,7 @@ class PeselUtils {
         }
     }
 
-    static LocalDate readDateFromPesel(String pesel) {
+    public static LocalDate readDateOfBirth(String pesel) {
         if (!validate(pesel)) {
             return LocalDate.MIN;
         } else {

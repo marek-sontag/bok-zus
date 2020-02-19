@@ -43,8 +43,10 @@ public class BokZus {
             System.out.println("Nieprawidłowy format numeru PESEL, wpisz ponownie!");
             pesel = scanner.nextLine();
         }
-        System.out.printf("Imię: %s, nazwisko: %s, PESEL: %s", name, lastName, pesel);
+        System.out.printf("Imię: %s, nazwisko: %s, PESEL: %s\n", name, lastName, pesel);
 
         Client client = new Client(name, lastName, pesel);
+
+        System.out.println(client);
     }
 }
