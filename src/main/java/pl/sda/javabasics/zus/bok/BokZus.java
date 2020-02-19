@@ -1,5 +1,7 @@
 package pl.sda.javabasics.zus.bok;
 
+import pl.sda.javabasics.zus.Client;
+
 import java.util.Scanner;
 
 public class BokZus {
@@ -32,7 +34,7 @@ public class BokZus {
         String lastName = scanner.nextLine();
         while (!NameValidator.validateLastName(lastName)) {
             System.out.println("Nieprawidłowy format nazwiska, wpisz ponownie!");
-            name = scanner.nextLine();
+            lastName = scanner.nextLine();
         }
 
         System.out.println("Podaj numer PESEL:");
@@ -42,5 +44,7 @@ public class BokZus {
             pesel = scanner.nextLine();
         }
         System.out.printf("Imię: %s, nazwisko: %s, PESEL: %s", name, lastName, pesel);
+
+        Client client = new Client(name, lastName, pesel);
     }
 }
