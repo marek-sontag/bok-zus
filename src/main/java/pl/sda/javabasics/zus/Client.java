@@ -20,6 +20,10 @@ public class Client {
         this.dateOfBirth = PeselUtils.readDateOfBirth(pesel);
     }
 
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
     @Override
     public String toString() {
         return "Client{" +

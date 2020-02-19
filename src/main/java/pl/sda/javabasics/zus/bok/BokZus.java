@@ -2,6 +2,9 @@ package pl.sda.javabasics.zus.bok;
 
 import pl.sda.javabasics.zus.Client;
 
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.temporal.ChronoUnit;
 import java.util.Scanner;
 
 public class BokZus {
@@ -48,5 +51,14 @@ public class BokZus {
         Client client = new Client(name, lastName, pesel);
 
         System.out.println(client);
+
+        Period clientLifespan = Period.between(client.getDateOfBirth(), LocalDate.now());
+        if (clientLifespan.getYears() >= 65) {
+            System.out.println("Pakuj swojego campera i ruszaj w świat, emerycie!");
+        } else {
+            long clientDaysTo65 = ChronoUnit.DAYS.between(client.getDateOfBirth(), client.getDateOfBirth().plusYears(65));
+            long clientLiefespanDays = ChronoUnit.DAYS.between(client.getDateOfBirth(), LocalDate.now());
+            System.out.printf("Oj! jeszcze musisz popracować %d dni!", clientDaysTo65 - clientLiefespanDays);
+        }
     }
 }
