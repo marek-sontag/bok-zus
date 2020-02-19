@@ -23,8 +23,18 @@ public class BokZus {
         System.out.println("Podaj imię:");
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
+        while (!NameValidator.validateName(name)) {
+            System.out.println("Nieprawidłowy format imienia, wpisz ponownie!");
+            name = scanner.nextLine();
+        }
+
         System.out.println("Podaj nazwisko:");
         String lastName = scanner.nextLine();
+        while (!NameValidator.validateLastName(lastName)) {
+            System.out.println("Nieprawidłowy format nazwiska, wpisz ponownie!");
+            name = scanner.nextLine();
+        }
+
         System.out.println("Podaj numer PESEL:");
         String pesel = scanner.nextLine();
 
