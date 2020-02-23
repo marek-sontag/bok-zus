@@ -31,7 +31,7 @@ public class PeselUtils {
             int year, month;
             int day = Integer.parseInt(dayAsString);
 
-            int codedMonth = Integer.parseInt((codedMonthAsString));
+            int codedMonth = Integer.parseInt(codedMonthAsString);
             if (codedMonth < 20) {
                 // years: 1900 - 1999
                 year = 1900 + Integer.parseInt(yearAsString);

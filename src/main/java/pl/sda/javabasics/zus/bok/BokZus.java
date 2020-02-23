@@ -53,12 +53,19 @@ public class BokZus {
         System.out.println(client);
 
         Period clientLifespan = Period.between(client.getDateOfBirth(), LocalDate.now());
-        if (clientLifespan.getYears() >= 65) {
+
+        if ((client.getSex() == 'M' && clientLifespan.getYears() >= 65)
+            || (client.getSex() == 'F' && clientLifespan.getYears() >= 60)){
             System.out.println("Pakuj swojego campera i ruszaj w świat, emerycie!");
         } else {
-            long clientDaysTo65 = ChronoUnit.DAYS.between(client.getDateOfBirth(), client.getDateOfBirth().plusYears(65));
-            long clientLiefespanDays = ChronoUnit.DAYS.between(client.getDateOfBirth(), LocalDate.now());
-            System.out.printf("Oj! jeszcze musisz popracować %d dni!", clientDaysTo65 - clientLiefespanDays);
+            LocalDate retirementDay;
+            if (client.getSex() == 'F') {
+                retirementDay = client.getDateOfBirth().plusYears(60);
+            } else {
+                retirementDay = client.getDateOfBirth().plusYears(65);
+            }
+            long daysToRetire = ChronoUnit.DAYS.between(LocalDate.now(), retirementDay);
+            System.out.printf("Oj! jeszcze musisz popracować %d dni!", daysToRetire);
         }
     }
 }

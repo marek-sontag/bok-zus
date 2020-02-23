@@ -24,6 +24,10 @@ public class Client {
         return dateOfBirth;
     }
 
+    public char getSex() {
+        return sex;
+    }
+
     @Override
     public String toString() {
         return "Client{" +

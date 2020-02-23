@@ -11,6 +11,6 @@ class NameValidator {
     }
 
     static boolean validateLastName(String lastName) {
-        return lastName != null && lastName.matches(PL_CHARACTERS + "+-?" + PL_CHARACTERS + "*");
+        return lastName != null && lastName.matches(PL_CHARACTERS + "+-?" + PL_CHARACTERS + "+");
     }
 }
